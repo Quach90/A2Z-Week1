@@ -31,14 +31,19 @@ $( document ).ready(function(){
             listWithKeyCode.push(wordFinish);
             wordArray.push(word);
           }
-          
+
         }
         else{
           listWithKeyCode.push(wordFinish);
         }
         wordValue = 0;
         word = "";
-      } else{
+      } else {
+        wordValue += charCode;
+        word += input.charAt(i);
+      }
+
+      if(i == input.length){
         wordValue += charCode;
         word += input.charAt(i);
       }
