@@ -44,8 +44,18 @@ $( document ).ready(function(){
       }
 
       if(i == input.length){
-        wordValue += charCode;
-        word += input.charAt(i);
+        var wordFinish = { key: wordValue, val: word}
+        if(!$("#dublicates").is(":checked")){
+
+          if($.inArray(word, wordArray) == -1){
+            listWithKeyCode.push(wordFinish);
+            wordArray.push(word);
+          }
+
+        }
+        else{
+          listWithKeyCode.push(wordFinish);
+        }
       }
     }
 
