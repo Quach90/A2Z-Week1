@@ -43,7 +43,7 @@ $( document ).ready(function(){
         word += input.charAt(i);
       }
 
-      if(i == input.length){
+      if(i+1 == input.length){
         var wordFinish = { key: wordValue, val: word}
         if(!$("#dublicates").is(":checked")){
 
