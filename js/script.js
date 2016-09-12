@@ -23,39 +23,27 @@ $( document ).ready(function(){
     var word = "";
     for(var i = 0; i < input.length; i++){
       var charCode = input.charCodeAt(i);
-      if(charCode == 32){
+      if(charCode == 32 || i+1 == input.length){
+        //For the last word
+        if(i+1 == input.length){
+          wordValue += charCode;
+          word += input.charAt(i);
+        }
         var wordFinish = { key: wordValue, val: word}
         if(!$("#dublicates").is(":checked")){
-
           if($.inArray(word, wordArray) == -1){
             listWithKeyCode.push(wordFinish);
             wordArray.push(word);
           }
-
         }
         else{
           listWithKeyCode.push(wordFinish);
         }
         wordValue = 0;
         word = "";
-      } else {
+      } else{
         wordValue += charCode;
         word += input.charAt(i);
-      }
-
-      if(i+1 == input.length){
-        var wordFinish = { key: wordValue, val: word}
-        if(!$("#dublicates").is(":checked")){
-
-          if($.inArray(word, wordArray) == -1){
-            listWithKeyCode.push(wordFinish);
-            wordArray.push(word);
-          }
-
-        }
-        else{
-          listWithKeyCode.push(wordFinish);
-        }
       }
     }
 
